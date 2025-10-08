@@ -112,11 +112,16 @@
 
   .headline {
     font-size: clamp(28px, 4.2vw, 48px);
-    line-height: 1.06;
-    font-weight: 500; 
+    line-height: 1.2;
+    font-weight: 500;
+    font-style: italic;
   }
 
-  .accent { color: var(--yellow); }
+  .accent {
+    color: var(--yellow);
+    font-weight: 600;
+  }
+
   .hero-sub { margin-top: 14px; color: rgba(0,0,0,0.65); }
   .badges { display: flex; gap: 14px; margin-top: 20px; flex-wrap: wrap; }
   .btn-primary {
@@ -294,12 +299,16 @@
     .features { grid-template-columns: repeat(2, 1fr); }
     .about-grid { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
+    .btn-outline, .cta{display: none;}
   }
   @media (max-width: 780px) {
     nav.desktop { display: none; }
-    .mobile-toggle { display: block; }
-    .mobile-nav { display: block; }
-    .hero { grid-template-columns: 1fr; }
+    .mobile-toggle { display: block; margin-top: -20px; font-size: 30px}
+    .mobile-nav { display: block; margin-top: 15px}
+    .accent{line-height: 2; }
+    .brand{margin-top: 20px}
+    .btn-outline, .cta{display: none;}
+    .hero { grid-template-columns: 1fr; margin-top: -10px}
     .circle.big { width: 320px; height: 320px; }
     .circle.small { width: 160px; height: 160px; right: 6%; bottom: -28px; }
     .reviews-grid { grid-template-columns: 1fr; }
@@ -310,6 +319,7 @@
   /* ---------- Reduced Motion ---------- */
   @media (prefers-reduced-motion: reduce) {
     .route { animation: none; }
+    .btn-outline, .cta{display: none;}
   }
 
   /* ---------- Helpers ---------- */
