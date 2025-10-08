@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chariot — Transport & Delivery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ---------- Variables ---------- */
+    :root{
+      --yellow:#ffd400;
+      --black:#0b0b0b;
+      --glass-bg: rgba(255,255,255,0.12);
+      --glass-border: rgba(255,255,255,0.22);
+      --container: 1200px;
+      --card-radius: 16px;
+      --shadow: 0 10px 30px rgba(2,6,23,0.08);
+    }
+
+    /* ---------- Base ---------- */
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Poppins",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      color:var(--black);
+      background: linear-gradient(180deg,#f7f8fb 0%, #eef2f7 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      min-height:100vh;
+    }
+    a{color:inherit}
+    img{display:block;max-width:100%;height:auto}
+
+    /* ---------- Container & utilities ---------- */
+    .wrap{max-width:var(--container);margin:0 auto;padding:0 22px}
+    .row{display:flex;gap:20px;align-items:center}
+    .muted{color:rgba(0,0,0,0.6)}
+    h1,h2,h3{margin:0 0 12px 0}
+    p{margin:0 0 12px 0}
+
+    /* ---------- Header ---------- */
+    header{
+      position:sticky;top:0;z-index:1200;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(90deg,var(--yellow), #ffe066);
+      box-shadow:0 6px 18px rgba(0,0,0,0.06);
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;padding:14px 0;
+    }
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px}
+    nav.desktop{
+      display:flex;gap:12px;align-items:center;
+    }
+    nav.desktop a{
+      padding:9px 12px;border-radius:10px;text-decoration:none;font-weight:600;
+      color:var(--black);transition:all .18s ease;
+    }
+    nav.desktop a.active,
+    nav.desktop a:hover{background:var(--black);color:#fff}
+
+    .cta{background:#fff;padding:9px 14px;border-radius:12px;text-decoration:none;font-weight:600}
+    .mobile-toggle{display:none;font-size:22px;cursor:pointer;background:transparent;border:0}
+
+    /* ---------- Mobile nav overlay ---------- */
+    .mobile-nav{
+      display:none;position:fixed;inset:64px 18px auto 18px;
+      background:rgba(255,255,255,0.98);backdrop-filter:blur(8px);border-radius:12px;padding:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.12);
+    }
+    .mobile-nav a{display:block;padding:10px;border-radius:8px;color:var(--black);text-decoration:none}
+
+    /* ---------- Hero ---------- */
+    main{padding:28px 0 60px}
+    .hero{display:grid;grid-template-columns:1fr 520px;gap:36px;align-items:center;margin-top:6px}
+    .headline{font-size:clamp(28px,4.2vw,48px);line-height:1.06;font-weight:500}
+    .accent{color:var(--yellow)}
+    .hero-sub{margin-top:14px;color:rgba(0,0,0,0.65)}
+    .badges{display:flex;gap:14px;margin-top:20px;flex-wrap:wrap}
+    .btn-primary{background:var(--black);color:#fff;padding:12px 16px;border-radius:12px;border:0;font-weight:600;cursor:pointer}
+    .btn-outline{background:transparent;border:1px solid rgba(0,0,0,0.08);padding:10px 14px;border-radius:12px;cursor:pointer}
+
+    .hero-right{position:relative;display:flex;align-items:center;justify-content:center}
+    .circle{border-radius:50%;overflow:hidden;border:10px solid #fff;box-shadow:0 18px 40px rgba(2,6,23,0.12);transition:transform .45s}
+    .circle.big{width:420px;height:420px}
+    .circle.small{width:220px;height:220px;position:absolute;right:6%;bottom:8%;border-width:8px}
+    .circle:hover{transform:scale(1.03)}
+    .route{
+      position:absolute;left:8%;top:30%;width:60%;height:300px;pointer-events:none;animation:dash 6s linear infinite;
+    }
+    @keyframes dash{to{stroke-dashoffset:-220}}
+
+    /* ---------- Sections base ---------- */
+    section{padding:40px 0}
+    section .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+    .visible{opacity:1 !important;transform:none !important}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+
+    /* ---------- ABOUT: 2-column + feature cards ---------- */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+    .about-card{background:linear-gradient(180deg,rgba(255,255,255,0.06), rgba(255,255,255,0.03));border-radius:var(--card-radius);
+                padding:22px;border:1px solid var(--glass-border);backdrop-filter:blur(8px);box-shadow:var(--shadow)}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+    .feature{padding:14px;border-radius:12px;background:rgba(255,255,255,0.06);text-align:center}
+
+    /* ---------- REVIEWS: grid cards ---------- */
+    .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .review-card{padding:18px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.06), rgba(255,255,255,0.03));border:1px solid var(--glass-border);box-shadow:var(--shadow)}
+    .stars{color:var(--yellow);font-weight:700;margin-bottom:8px}
+
+    /* ---------- FAQ: 2-column accordion ---------- */
+    .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .faq-item{border-radius:12px;overflow:hidden;border:1px solid var(--glass-border);background:rgba(255,255,255,0.03)}
+    .faq-btn{width:100%;text-align:left;padding:16px 18px;border:0;background:transparent;cursor:pointer;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+    .faq-panel{padding:0 18px;max-height:0;overflow:hidden;transition:max-height .32s ease}
+    .faq-open .faq-panel{padding-bottom:16px}
+
+    /* ---------- CONTACT: grid form + info ---------- */
+    .contact-grid{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:start}
+    .form-row{display:flex;gap:10px}
+    .input, textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.12)}
+    textarea{min-height:140px;resize:vertical}
+    .info-card{padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent);border:1px solid var(--glass-border)}
+
+    /* ---------- Footer ---------- */
+    footer{background:#0b0b0b;color:#e9e9e9;padding:28px 0;margin-top:36px}
+    footer .foot-wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:1100px){
+      .reviews-grid{grid-template-columns:repeat(2,1fr)}
+      .features{grid-template-columns:repeat(2,1fr)}
+      .about-grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:780px){
+      nav.desktop{display:none}
+      .mobile-toggle{display:block}
+      .mobile-nav{display:block}
+      .hero{grid-template-columns:1fr}
+      .circle.big{width:320px;height:320px}
+      .circle.small{width:160px;height:160px;right:6%;bottom:-28px}
+      .reviews-grid{grid-template-columns:1fr}
+      .faq-grid{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr}
+    }
+
+    /* Reduced motion preference */
+    @media (prefers-reduced-motion:reduce){
+      .route{animation:none}
+    }
+
+    /* small helpers */
+    .mt-8{margin-top:8px}.mt-16{margin-top:16px}
+    .txt-center{text-align:center}
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(0,0,0,0.06);font-weight:600}
+    .toast{position:fixed;right:18px;bottom:18px;background:var(--black);color:#fff;padding:12px 16px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.2)}
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="wrap nav">
+      <div class="brand" aria-hidden="true">🚖 <span style="letter-spacing:.6px">Chariot</span></div>
+
+      <!-- desktop nav -->
+      <nav class="desktop" aria-label="Primary navigation">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#reviews" class="nav-link">Reviews</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="row" style="gap:12px">
+        <button class="btn-outline" onclick="scrollToSection('contact')">Get Support</button>
+        <a class="cta" href="#" aria-label="Download app">Download App</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+
+    <!-- mobile nav -->
+    <div id="mobileNav" class="mobile-nav" aria-hidden="true" style="display:none">
+      <a href="#home" class="mobile-link">Home</a>
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#reviews" class="mobile-link">Reviews</a>
+      <a href="#faq" class="mobile-link">FAQ</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="wrap">
+
+    <!-- HERO -->
+    <section id="home" class="reveal" aria-label="Home section">
+      <div class="hero">
+        <div>
+          <h1 class="headline">Pushing the envelope of <span class="accent">Transport</span> and <span class="accent">Delivery</span> to the next level.</h1>
+          <p class="hero-sub muted">Fast rides. Real-time tracking. Secure deliveries. Built for urban life.</p>
+          <div class="mt-16 row" style="align-items:center">
+            <button class="btn-primary" onclick="scrollToSection('contact')">Book / Send</button>
+            <button class="btn-outline" style="margin-left:8px">How it works</button>
+            <div style="margin-left:auto" class="txt-center">
+              <div class="chip">Rated 4.8 ★</div>
+              <div class="muted mt-8" style="font-size:13px">Trusted by thousands</div>
+            </div>
+          </div>
+
+          <div class="badges mt-16">
+            <a href="#" aria-label="Google Play badge"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play badge" style="height:46px"></a>
+            <a href="#" aria-label="App Store badge"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="App Store badge" style="height:46px"></a>
+          </div>
+        </div>
+
+        <div class="hero-right" aria-hidden="true">
+          <svg class="route" viewBox="0 0 1000 300" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M20 260 C 150 200, 300 100, 420 170 C 540 240, 700 120, 980 60"
+                  fill="none" stroke="#ffd400" stroke-width="6" stroke-dasharray="18 12" stroke-linecap="round"></path>
+          </svg>
+
+          <div class="circle big" role="img" aria-label="Chariot car image">
+            <img src="https://picsum.photos/680/680?auto=compress&blur=1" alt="Chariot main" />
+          </div>
+          <div class="circle small" role="img" aria-label="Driver image">
+            <img src="https://picsum.photos/320/320?auto=compress&blur=2" alt="Chariot small" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="reveal" aria-label="About Chariot">
+      <div class="section-head">
+        <h2>About Us</h2>
+        <div class="muted">We combine safety, speed and simplicity.</div>
+      </div>
+
+      <div class="about-grid mt-8">
+        <div>
+          <div class="about-card">
+            <h3>Who we are</h3>
+            <p>Chariot is a ride-sharing platform committed to transforming everyday transportation through innovation, reliability, and technology. Chariot connects passengers with trusted drivers in a seamless, efficient, and secure manner.
+
+               Our mission is to provide a dependable alternative to traditional transport options, offering a technology-driven solution that enhances convenience while fostering economic opportunity. By partnering with local drivers and tailoring our services to urban and peri-urban environments, we aim to create a system that benefits both users and service providers.</p>
+
+            <div class="features">
+              <div class="feature">
+                <strong>Fast</strong><div class="muted" style="font-size:13px">Quick pickups & deliveries</div>
+              </div>
+              <div class="feature">
+                <strong>Safe</strong><div class="muted" style="font-size:13px">Verified drivers</div>
+              </div>
+              <div class="feature">
+                <strong>Transparent</strong><div class="muted" style="font-size:13px">Real-time tracking</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <img alt="about image" src="https://picsum.photos/680/500?auto=compress&grayscale=0" style="border-radius:12px;box-shadow:var(--shadow)">
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="reveal" aria-label="Customer reviews">
+      <div class="section-head">
+        <h2>Reviews</h2>
+        <div class="muted">Real feedback from riders & shippers</div>
+      </div>
+
+      <div class="reviews-grid mt-8">
+        <article class="review-card" aria-label="Review by Sarah">
+          <div class="stars">★ ★ ★ ★ ★</div>
+          <p>“Fast, reliable, and affordable. Chariot changed how I travel daily.”</p>
+          <div class="muted mt-8">— Sarah J., daily rider</div>
+        </article>
+
+        <article class="review-card" aria-label="Review by Michael">
+          <div class="stars">★ ★ ★ ★</div>
+          <p>“Delivery was on time and stress-free. Highly recommend.”</p>
+          <div class="muted mt-8">— Michael T., small business</div>
+        </article>
+
+        <article class="review-card" aria-label="Review by Daniel">
+          <div class="stars">★ ★ ★ ★ ★</div>
+          <p>“The app is intuitive and drivers are friendly.”</p>
+          <div class="muted mt-8">— Daniel R., commuter</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="reveal" aria-label="Frequently asked questions">
+      <div class="section-head">
+        <h2>FAQ</h2>
+        <div class="muted">Answers to common questions</div>
+      </div>
+
+      <div class="faq-grid mt-8">
+        <div class="faq-item" id="f1">
+          <button class="faq-btn" aria-expanded="false" aria-controls="panel1">How do I book a ride? <span class="muted">+</span></button>
+          <div id="panel1" class="faq-panel" role="region" aria-labelledby="f1">
+            <div style="padding:12px 0 8px">Install the app, create an account, then enter pickup and dropoff — confirm and a driver will accept the job.</div>
+          </div>
+        </div>
+
+        <div class="faq-item" id="f2">
+          <button class="faq-btn" aria-expanded="false" aria-controls="panel2">Do you offer package delivery? <span class="muted">+</span></button>
+          <div id="panel2" class="faq-panel" role="region" aria-labelledby="f2">
+            <div style="padding:12px 0 8px">Yes. Choose 'Delivery' inside the app, add package details and pickup/delivery addresses.</div>
+          </div>
+        </div>
+
+        <div class="faq-item" id="f3">
+          <button class="faq-btn" aria-expanded="false" aria-controls="panel3">Which areas do you cover? <span class="muted">+</span></button>
+          <div id="panel3" class="faq-panel" role="region" aria-labelledby="f3">
+            <div style="padding:12px 0 8px">We currently operate across major UK cities; check the app for live service zones.</div>
+          </div>
+        </div>
+
+        <div class="faq-item" id="f4">
+          <button class="faq-btn" aria-expanded="false" aria-controls="panel4">How do I contact support? <span class="muted">+</span></button>
+          <div id="panel4" class="faq-panel" role="region" aria-labelledby="f4">
+            <div style="padding:12px 0 8px">Use the in-app help center, email support@chariot.com, or call 0205 491 108.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="reveal" aria-label="Contact us">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <div class="muted">We'd love to hear from you</div>
+      </div>
+
+      <div class="contact-grid mt-8">
+        <form id="contactForm" class="about-card" aria-label="Contact form" novalidate>
+          <div style="display:flex;gap:12px">
+            <input id="name" class="input" name="name" placeholder="Your name" required>
+            <input id="email" class="input" name="email" placeholder="Email address" required>
+          </div>
+
+          <div style="margin-top:12px">
+            <input id="subject" class="input" name="subject" placeholder="Subject (optional)">
+          </div>
+
+          <div style="margin-top:12px">
+            <textarea id="message" name="message" placeholder="Your message" required></textarea>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:12px;margin-top:12px">
+            <button type="submit" class="btn-primary">Send message</button>
+            <div id="formFeedback" class="muted" style="font-size:13px"></div>
+          </div>
+        </form>
+
+        <aside class="info-card" aria-label="Contact information">
+          <h3>Get in touch</h3>
+          <p class="muted">For urgent requests call us or use the app help center.</p>
+          <div class="mt-16">
+            <strong>Address</strong>
+            <div class="muted">12 Transport Hub, London, UK</div>
+          </div>
+          <div class="mt-12">
+            <strong>Phone</strong>
+            <div class="muted">0205 491 108</div>
+          </div>
+          <div class="mt-12">
+            <strong>Email</strong>
+            <div class="muted">support@chariot.com</div>
+          </div>
+
+          <div class="mt-16">
+            <strong>Follow</strong>
+            <div class="mt-8 row" style="gap:10px">
+              <a href="#" class="chip" aria-label="Twitter">Twitter</a>
+              <a href="#" class="chip" aria-label="Facebook">Facebook</a>
+              <a href="#" class="chip" aria-label="Instagram">Instagram</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap foot-wrap">
+      <div>© 2025 Chariot. All Rights Reserved</div>
+      <div style="display:flex;gap:14px;align-items:center">
+        <a href="#" style="color:#fff;text-decoration:none">Privacy</a>
+        <a href="#" style="color:#fff;text-decoration:none">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Optional toast -->
+  <div id="toastRoot" aria-live="polite"></div>
+
+  <script>
+    /* ---------- Mobile nav toggle ---------- */
+    const mobileToggle = document.getElementById('mobileToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    mobileToggle && mobileToggle.addEventListener('click', () => {
+      const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+      mobileToggle.setAttribute('aria-expanded', String(!expanded));
+      mobileNav.style.display = expanded ? 'none' : 'block';
+      mobileNav.setAttribute('aria-hidden', String(expanded));
+    });
+
+    // Close mobile nav on link click
+    document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', () => {
+      mobileNav.style.display = 'none';
+      mobileToggle.setAttribute('aria-expanded','false');
+    }));
+
+    /* ---------- Section reveal & active nav ---------- */
+    const sections = document.querySelectorAll('main section');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          // set active nav link
+          const id = entry.target.id;
+          navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+        }
+      });
+    }, { threshold: 0.52 });
+
+    sections.forEach(s => io.observe(s));
+
+    // helper for top buttons
+    function scrollToSection(id){
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    // attach click handlers to desktop nav (close mobile if open)
+    document.querySelectorAll('nav.desktop a').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const href = a.getAttribute('href');
+        if(href && href.startsWith('#')) {
+          e.preventDefault();
+          const id = href.slice(1);
+          scrollToSection(id);
+          // close mobile nav if visible
+          mobileNav.style.display = 'none';
+          mobileToggle && mobileToggle.setAttribute('aria-expanded','false');
+        }
+      });
+    });
+
+    /* ---------- FAQ accordion (accessible) ---------- */
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const parent = btn.closest('.faq-item');
+        const open = parent.classList.contains('faq-open');
+        // close all
+        document.querySelectorAll('.faq-item').forEach(it => {
+          it.classList.remove('faq-open');
+          it.querySelector('.faq-btn').setAttribute('aria-expanded','false');
+          it.querySelector('.faq-panel').style.maxHeight = null;
+        });
+        if(!open){
+          parent.classList.add('faq-open');
+          btn.setAttribute('aria-expanded','true');
+          const panel = parent.querySelector('.faq-panel');
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        }
+      });
+    });
+
+    /* ---------- Contact form: client-side validation + fake send ---------- */
+    const form = document.getElementById('contactForm');
+    const feedback = document.getElementById('formFeedback');
+
+    function showToast(msg, time = 3000){
+      const root = document.getElementById('toastRoot');
+      const t = document.createElement('div');
+      t.className = 'toast';
+      t.textContent = msg;
+      root.appendChild(t);
+      setTimeout(()=> t.remove(), time);
+    }
+
+    if(form){
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        feedback.textContent = '';
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        if(!name){ feedback.textContent = 'Please enter your name.'; return; }
+        if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ feedback.textContent = 'Please enter a valid email.'; return; }
+        if(message.length < 8){ feedback.textContent = 'Message is too short.'; return; }
+
+        // simulate sending...
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const old = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        setTimeout(() => {
+          submitBtn.textContent = old;
+          submitBtn.disabled = false;
+          form.reset();
+          feedback.textContent = '';
+          showToast('Message sent — we will get back to you shortly!');
+        }, 900); // simulate network
+      });
+    }
+
+    /* ---------- Small accessibility helpers ---------- */
+    // Make FAQ panels sized correctly in case content is visible after page load
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.faq-item').forEach(it => {
+        if(it.classList.contains('faq-open')){
+          const p = it.querySelector('.faq-panel');
+          p.style.maxHeight = p.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // Keyboard support for mobile toggle (Enter/Space)
+    mobileToggle && mobileToggle.addEventListener('keydown', (ev) => {
+      if(ev.key === 'Enter' || ev.key === ' ') mobileToggle.click();
+    });
+  </script>
+</body>
+</html>
