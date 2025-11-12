@@ -475,6 +475,14 @@ textarea {
   border: 1px solid var(--glass-border);
 }
 
+.info-card a{
+  text-decoration: none
+}
+
+.info-card h3{
+  margin-left: 0px;
+  margin-bottom: 10px
+}
 /* ---------- Footer ---------- */
 footer {
   background: #0b0b0b;
