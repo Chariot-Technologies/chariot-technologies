@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogs | Chariot Uganda</title>
+
+  <style>
+    :root {
+      --primary: #1b75bc;
+      --accent: #f5b400;
+      --text-dark: #222;
+      --text-light: #555;
+      --bg-light: #f4f7fb;
+      --white: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+    }
+
+    /* HEADER */
+    header {
+      background: var(--primary);
+      padding: 4rem 2rem 5rem;
+      text-align: center;
+      color: var(--white);
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      margin-bottom: .5rem;
+    }
+
+    header p {
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      opacity: .9;
+    }
+
+    /* BLOG GRID */
+    .blogs-container {
+      max-width: 1100px;
+      margin: -3rem auto 3rem;
+      padding: 1.5rem;
+    }
+
+    .blogs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .blog-card {
+      background: var(--white);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      transition: .3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: #ddd;
+    }
+
+    .blog-content {
+      padding: 1.5rem;
+    }
+
+    .blog-content h3 {
+      margin: 0 0 .7rem;
+      color: var(--primary);
+      font-size: 1.25rem;
+    }
+
+    .blog-content p {
+      color: var(--text-light);
+      font-size: .95rem;
+      margin-bottom: 1rem;
+      line-height: 1.5;
+    }
+
+    .blog-card a {
+      display: inline-block;
+      padding: .5rem 1.3rem;
+      background: var(--accent);
+      border-radius: 30px;
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      transition: .3s ease;
+    }
+
+    .blog-card a:hover {
+      background: #e2a600;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--primary);
+      color: var(--white);
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Chariot Blogs</h1>
+  <p>Stories, updates, and insights from Chariot Uganda. Stay informed about mobility, safety, and life in Kampala.</p>
+</header>
+
+<section class="blogs-container">
+  <div class="blogs-grid">
+
+    <!-- BLOG 1 -->
+    <div class="blog-card">
+      <div class="blog-img" style="background-image:url('https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1200');"></div>
+      <div class="blog-content">
+        <h3>How Chariot Is Transforming Transport in Kampala</h3>
+        <p>Discover how convenient, safe, tech-powered mobility is changing the way people move in the city.</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+
+    <!-- BLOG 2 -->
+    <div class="blog-card">
+      <div class="blog-img" style="background-image:url('https://images.unsplash.com/photo-1526045431048-bd94c13d0f2d?auto=format&fit=crop&w=1200');"></div>
+      <div class="blog-content">
+        <h3>Become a Chariot Rider: What You Need to Know</h3>
+        <p>Thinking about becoming a rider? Here’s everything required before you hit the road.</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+
+    <!-- BLOG 3 -->
+    <div class="blog-card">
+      <div class="blog-img" style="background-image:url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200');"></div>
+      <div class="blog-content">
+        <h3>Safety First: Our Promise to Riders & Drivers</h3>
+        <p>Your safety is our priority. Learn about our safety standards and what we do to keep you protected.</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+
+    <!-- BLOG 4 -->
+    <div class="blog-card">
+      <div class="blog-img" style="background-image:url('https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=1200');"></div>
+      <div class="blog-content">
+        <h3>Why Kampala Needs Smart Mobility</h3>
+        <p>The future of cities lies in efficient, tech-driven transport. Here’s why Kampala is ready for it.</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Chariot Uganda. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

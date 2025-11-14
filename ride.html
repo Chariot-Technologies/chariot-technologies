@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ride with Chariot Uganda</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="wrap nav">
+      <a href="index.html"><div class="brand" aria-hidden="true"> <img src="https://res.cloudinary.com/daiyjykmj/image/upload/v1759931875/chariot_images/chariot%20logo-01.png" alt=""> </div></a>
+
+      <!-- desktop nav -->
+      <nav class="desktop" aria-label="Primary navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="index.html#about" class="nav-link">About Us</a>
+        <a href="drive.html" class="nav-link">Drive</a>
+        <!-- <a href="index.html#careers" class="nav-link">Careers</a>
+        <a href="index.html#blogs" class="nav-link">Blogs</a> -->
+        <a href="index.html#reviews" class="nav-link">Reviews</a>
+        <a href="index.html#faq" class="nav-link">FAQ</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="row" style="margin-top:40px">
+        <!-- <button class="btn-outline" onclick="scrollToSection('contact')">Whatsapp Us</button>
+        <a class="cta" href="#" aria-label="Download app">Call Us</a> -->
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+
+    <!-- mobile nav -->
+    <div id="mobileNav" class="mobile-nav" aria-hidden="true" style="display:none">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="index.html#about" class="nav-link">About Us</a>
+      <a href="drive.html" class="nav-link">Drive</a>
+      <!-- <a href="index.html#careers" class="nav-link">Careers</a>
+      <a href="index.html#blogs" class="nav-link">Blogs</a> -->
+      <a href="index.html#reviews" class="nav-link">Reviews</a>
+      <a href="index.html#faq" class="nav-link">FAQ</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+      <!-- <button class="btn-outline" onclick="scrollToSection('contact')">Whatsapp Us</button>
+      <a class="cta" href="#" aria-label="Download app">Call Us</a> -->
+    </div>
+  </header>
+
+
+  <div class="ride-header">
+    <h1>Ride with Chariot Uganda</h1>
+    <p>Fast, safe, and affordable rides across Kampala — get there on time with comfort and peace of mind.</p>
+    <div class="store-buttons">
+      <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play"></a>
+      <a href="#"><img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store"></a>
+    </div>
+  </div>
+
+<main class="wrap">
+
+  <section class="section-container">
+    <div class="info">
+      <h2>Why Ride with Chariot?</h2>
+      <p>Our app connects you to verified drivers in seconds. With real-time tracking, transparent pricing, and top-rated safety, Chariot gives you the freedom to move around your city with confidence.</p>
+    </div>
+
+    <div class="ride-ride-features">
+      <div class="ride-feature">
+        <h3>🚗 Quick & Reliable</h3>
+        <p>Book a ride instantly and get picked up in minutes — no long waits or haggling.</p>
+      </div>
+      <div class="ride-feature">
+        <h3>💸 Fair Pricing</h3>
+        <p>Know your fare upfront with no hidden charges — affordable rides for every budget.</p>
+      </div>
+      <div class="ride-feature">
+        <h3>🛡️ Safe & Secure</h3>
+        <p>All drivers are verified and rides are tracked in real time for your safety.</p>
+      </div>
+      <div class="ride-feature">
+        <h3>📍 Citywide Coverage</h3>
+        <p>Wherever you are in Kampala, a Chariot driver is always nearby to get you moving.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="reveal" aria-label="Customer reviews">
+    <div class="section-head">
+      <h2>Reviews</h2>
+      <!-- <div class="muted">Real feedback from riders & shippers</div> -->
+    </div>
+
+    <div class="reviews-grid mt-8">
+      <article class="review-card" aria-label="Review by Sarah">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p>“Fast, reliable, and affordable. Chariot changed how I travel daily.”</p>
+        <div class="muted mt-8">— Sarah J., daily rider</div>
+      </article>
+
+      <article class="review-card" aria-label="Review by Michael">
+        <div class="stars">★ ★ ★ ★</div>
+        <p>“Delivery was on time and stress-free. Highly recommend.”</p>
+        <div class="muted mt-8">— Michael T., small business</div>
+      </article>
+
+      <article class="review-card" aria-label="Review by Michael">
+        <div class="stars">★ ★ ★ ★</div>
+        <p>“Delivery was on time and stress-free. Highly recommend.”</p>
+        <div class="muted mt-8">— Michael T., small business</div>
+      </article>
+
+      <article class="review-card" aria-label="Review by Daniel">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p>“The app is intuitive and drivers are friendly.”</p>
+        <div class="muted mt-8">— Daniel R., commuter</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="reveal" aria-label="Frequently asked questions">
+    <div class="section-head">
+      <h2>FAQ</h2>
+      <!-- <div class="muted">Answers to common questions</div> -->
+    </div>
+
+    <div class="faq-grid mt-8">
+      <div class="faq-item" id="f1">
+        <button class="faq-btn" aria-expanded="false" aria-controls="panel1">How do I book a ride? <span class="muted-faq">+</span></button>
+        <div id="panel1" class="faq-panel" role="region" aria-labelledby="f1">
+          <div style="padding:12px 0 8px">Install the app, create an account, then enter pickup and dropoff — confirm and a driver will accept the job.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f2">
+        <button class="faq-btn" aria-expanded="false" aria-controls="panel2">Do you offer package delivery? <span class="muted-faq">+</span></button>
+        <div id="panel2" class="faq-panel" role="region" aria-labelledby="f2">
+          <div style="padding:12px 0 8px">Yes. Choose 'Delivery' inside the app, add package details and pickup/delivery addresses.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f3">
+        <button class="faq-btn" aria-expanded="false" aria-controls="panel3">Which areas do you cover? <span class="muted-faq">+</span></button>
+        <div id="panel3" class="faq-panel" role="region" aria-labelledby="f3">
+          <div style="padding:12px 0 8px">We currently operate across major Uganda cities; check the app for live service zones.</div>
+        </div>
+      </div>
+
+      <div class="faq-item" id="f4">
+        <button class="faq-btn" aria-expanded="false" aria-controls="panel4">How do I contact support? <span class="muted-faq">+</span></button>
+        <div id="panel4" class="faq-panel" role="region" aria-labelledby="f4">
+          <div style="padding:12px 0 8px">Use the in-app help center, email support@chariot.com, or call 0205 491 108.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap foot-wrap">
+      <div>© 2025 Chariot. All Rights Reserved</div>
+      <div style="display:flex;gap:14px;align-items:center">
+        <a href="#" style="color:#fff;text-decoration:none">Privacy</a>
+        <a href="#" style="color:#fff;text-decoration:none">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Optional toast -->
+  <div id="toastRoot" aria-live="polite"></div>
+
+<script src="js/index.js" defer></script>
+</body>
+</html>

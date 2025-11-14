@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers | Chariot Uganda</title>
+
+  <style>
+    :root {
+      --primary: #1b75bc;
+      --accent: #f5b400;
+      --text-dark: #222;
+      --text-light: #666;
+      --bg-light: #f4f7fb;
+      --white: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+    }
+
+    /* HEADER */
+    header {
+      background: var(--primary);
+      padding: 4rem 2rem 5rem;
+      text-align: center;
+      color: var(--white);
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      margin-bottom: .5rem;
+    }
+
+    header p {
+      max-width: 650px;
+      margin: 0 auto;
+      opacity: .95;
+      font-size: 1.05rem;
+    }
+
+    /* PAGE CONTAINER */
+    .careers-container {
+      max-width: 1100px;
+      margin: -3rem auto 4rem;
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+    }
+
+    /* SECTIONS */
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section h2 {
+      color: var(--primary);
+      margin-bottom: .5rem;
+      font-size: 1.8rem;
+    }
+
+    .section p {
+      color: var(--text-light);
+      max-width: 750px;
+      line-height: 1.7;
+    }
+
+    /* JOB GRID */
+    .jobs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .job-card {
+      background: var(--bg-light);
+      padding: 1.7rem;
+      border-radius: 14px;
+      transition: .25s ease;
+      border-left: 5px solid var(--primary);
+    }
+
+    .job-card:hover {
+      transform: translateY(-5px);
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .job-card h3 {
+      margin: .3rem 0 .8rem;
+    }
+
+    .job-card p {
+      margin: 0 0 1rem;
+      font-size: .95rem;
+    }
+
+    .job-card a {
+      display: inline-block;
+      padding: .5rem 1.2rem;
+      background: var(--accent);
+      color: var(--white);
+      border-radius: 30px;
+      font-size: .85rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .job-card a:hover {
+      background: #e2a600;
+    }
+
+    /* APPLY BUTTON */
+    .apply-btn {
+      display: inline-block;
+      padding: .8rem 1.8rem;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    .apply-btn:hover {
+      background: #1767a5;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      background: var(--primary);
+      color: var(--white);
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Careers at Chariot Uganda</h1>
+  <p>Join our mission to transform mobility in Kampala. We’re building smart, safe, and reliable transport solutions — and we want talented people like you.</p>
+</header>
+
+<div class="careers-container">
+
+  <!-- ABOUT WORKING AT CHARIOT -->
+  <div class="section">
+    <h2>Why Work With Us?</h2>
+    <p>
+      At Chariot Uganda, we believe in empowering local talent, building modern mobility systems,
+      and creating impact for millions of people. We value creativity, teamwork, and people who
+      love solving real problems.
+    </p>
+  </div>
+
+  <!-- OPEN ROLES -->
+  <div class="section">
+    <h2>Open Positions</h2>
+    <p>Explore roles across technology, support, operations, and growth.</p>
+
+    <div class="jobs-grid">
+
+      <!-- JOB 1 -->
+      <div class="job-card">
+        <h3>Customer Support Agent</h3>
+        <p>Help riders and drivers get fast, friendly assistance through calls and chat.</p>
+        <a href="#">Apply Now</a>
+      </div>
+
+      <!-- JOB 2 -->
+      <div class="job-card">
+        <h3>Operations Coordinator</h3>
+        <p>Ensure daily transport operations run smoothly across Kampala.</p>
+        <a href="#">Apply Now</a>
+      </div>
+
+      <!-- JOB 3 -->
+      <div class="job-card">
+        <h3>Marketing & Social Media Lead</h3>
+        <p>Create content, manage campaigns, and grow brand visibility.</p>
+        <a href="#">Apply Now</a>
+      </div>
+
+      <!-- JOB 4 -->
+      <div class="job-card">
+        <h3>Software Developer (Frontend)</h3>
+        <p>Build the next generation of Chariot's web and mobile experiences.</p>
+        <a href="#">Apply Now</a>
+      </div>
+
+      <!-- JOB 5 -->
+      <div class="job-card">
+        <h3>Driver Onboarding Officer</h3>
+        <p>Work with new drivers, verify documents, and assist sign-ups.</p>
+        <a href="#">Apply Now</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GENERAL APPLICATION -->
+  <div class="section">
+    <h2>Didn’t See Your Role?</h2>
+    <p>We’re always looking for passionate people. Send us your CV and we’ll reach out if a suitable role opens up.</p>
+    <a href="#" class="apply-btn">Send General Application</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2025 Chariot Uganda. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

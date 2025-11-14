@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Driver Requirements | Chariot Uganda</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="wrap nav">
+      <a href="index.html"><div class="brand" aria-hidden="true"> <img src="https://res.cloudinary.com/daiyjykmj/image/upload/v1759931875/chariot_images/chariot%20logo-01.png" alt=""> </div></a>
+
+      <!-- desktop nav -->
+      <nav class="desktop" aria-label="Primary navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="index.html#about" class="nav-link">About Us</a>
+        <a href="ride.html" class="nav-link">Ride</a>
+        <!-- <a href="index.html#careers" class="nav-link">Careers</a>
+        <a href="index.html#blogs" class="nav-link">Blogs</a> -->
+        <a href="index.html#reviews" class="nav-link">Reviews</a>
+        <a href="index.html#faq" class="nav-link">FAQ</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="row" style="margin-top:40px">
+        <!-- <button class="btn-outline" onclick="scrollToSection('contact')">Whatsapp Us</button>
+        <a class="cta" href="#" aria-label="Download app">Call Us</a> -->
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+
+    <!-- mobile nav -->
+    <div id="mobileNav" class="mobile-nav" aria-hidden="true" style="display:none">
+
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="index.html#about" class="nav-link">About Us</a>
+        <a href="ride.html" class="nav-link">Ride</a>
+        <!-- <a href="index.html#careers" class="nav-link">Careers</a>
+        <a href="index.html#blogs" class="nav-link">Blogs</a> -->
+        <a href="index.html#reviews" class="nav-link">Reviews</a>
+        <a href="index.html#faq" class="nav-link">FAQ</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+
+      <!-- <button class="btn-outline" onclick="scrollToSection('contact')">Whatsapp Us</button>
+      <a class="cta" href="#" aria-label="Download app">Call Us</a> -->
+    </div>
+  </header>
+
+
+
+  <div class="drive-header">
+    <h1>Drive with Chariot Uganda</h1>
+    <p>Join Chariot and make money driving people around Kampala. Be your own boss and move your city forward.</p>
+    <button onclick="scrollToSection()">Get Started</button>
+  </div>
+
+<main class="wrap">
+
+  <section class="section-container" id="requirements">
+    <div class="requirements">
+      <div class="requirement">
+        <h3>Minimum Driver Requirements</h3>
+        <ul>
+          <li>Valid driving license for Uganda</li>
+          <li>Certificate of Good Conduct from Interpol</li>
+          <li>Minimum of 21 years of age</li>
+          <li>Driver profile photo</li>
+        </ul>
+      </div>
+
+      <div class="requirement">
+        <h3>Minimum Vehicle Requirements</h3>
+        <ul>
+          <li>Excellent working and physical condition</li>
+          <li>Working radio and air conditioning</li>
+          <li>Four doors</li>
+          <li>Approved vehicle type</li>
+        </ul>
+      </div>
+
+      <div class="requirement">
+        <h3>Required Vehicle Documentation</h3>
+        <ul>
+          <li>KCCA Permit</li>
+          <li>Vehicle third-party insurance</li>
+          <li>TLB Sticker</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- CONTACT -->
+  <section id="contact" class="reveal" aria-label="Contact us">
+    <div class="section-head">
+      <h2>Contact</h2>
+      <!-- <div class="muted">We'd love to hear from you</div> -->
+    </div>
+
+    <div class="contact-grid mt-8">
+      <form action="mailto:support@chariottechnologies.net" id="contactForm" class="about-card" aria-label="Contact form" novalidate>
+        <div style="display:flex;gap:12px">
+          <input id="name" class="input" name="name" placeholder="Your name" required>
+          <input id="email" class="input" name="email" placeholder="Email address" required>
+        </div>
+
+        <div style="margin-top:12px">
+          <input id="subject" class="input" name="subject" placeholder="Subject (optional)">
+        </div>
+
+        <div style="margin-top:12px">
+          <textarea id="message" name="message" placeholder="Your message" required></textarea>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:12px;margin-top:12px">
+          <button type="submit" class="btn-primary">Send message</button>
+          <div id="formFeedback" class="muted" style="font-size:13px"></div>
+        </div>
+      </form>
+
+      <aside class="info-card" aria-label="Contact information">
+        <h3>Get in touch</h3>
+        <p class="muted">For urgent requests call us or use the app help center.</p>
+        <div class="mt-16">
+          <strong>Address</strong>
+          <div class="muted">P.O. Box 703148, Entebbe, Uganda</div>
+        </div>
+        <div class="mt-12">
+          <strong>Phone</strong>
+          <div class="muted"><a href="tel:+256205491108">+256 205 491 108</a></div>
+        </div>
+        <div class="mt-12">
+          <strong>Whatsapp</strong>
+          <div class="muted"><a href="https://api.whatsapp.com/send?phone=256205491108">+256 205 491 108</a></div>
+        </div>
+        <div class="mt-12">
+          <strong>Email</strong>
+          <div class="muted"> <a href="mailto:support@chariottechnologies.net">support@chariottechnologies.net</a> </div>
+        </div>
+
+        <div class="mt-16">
+          <strong>Follow</strong>
+          <div class="mt-8 row" style="gap:10px">
+            <a href="#" class="chip" aria-label="Twitter">Twitter</a>
+            <a href="#" class="chip" aria-label="Facebook">Facebook</a>
+            <a href="#" class="chip" aria-label="Instagram">Instagram</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot-wrap">
+    <div>© 2025 Chariot. All Rights Reserved</div>
+    <div style="display:flex;gap:14px;align-items:center">
+      <a href="#" style="color:#fff;text-decoration:none">Privacy</a>
+      <a href="#" style="color:#fff;text-decoration:none">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Optional toast -->
+<div id="toastRoot" aria-live="polite"></div>
+
+ <script src="js/index.js" defer></script>
+</body>
+</html>

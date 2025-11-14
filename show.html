@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Article | Chariot Uganda</title>
+
+  <style>
+    :root {
+      --primary: #1b75bc;
+      --accent: #f5b400;
+      --text-dark: #222;
+      --text-light: #555;
+      --bg-light: #f4f7fb;
+      --white: #fff;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: var(--bg-light);
+      color: var(--text-dark);
+    }
+
+    /* HEADER IMAGE */
+    .hero {
+      width: 100%;
+      height: 320px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+    }
+
+    .hero-title {
+      position: absolute;
+      bottom: 20px;
+      left: 30px;
+      z-index: 2;
+      color: var(--white);
+      font-size: 2.2rem;
+      max-width: 80%;
+      font-weight: 700;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    /* CONTENT AREA */
+    .content-wrapper {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+      line-height: 1.8;
+    }
+
+    .content-wrapper p {
+      margin: 1rem 0;
+      color: var(--text-light);
+      font-size: 1.05rem;
+    }
+
+    .content-wrapper h2 {
+      margin-top: 2rem;
+      color: var(--primary);
+    }
+
+    /* BACK BUTTON */
+    .back-btn {
+      display: inline-block;
+      margin: 1rem 0 2rem;
+      padding: 0.7rem 1.4rem;
+      background: var(--primary);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #1767a5;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--primary);
+      color: var(--white);
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero-title { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HERO IMAGE WITH TITLE -->
+<div class="hero" style="background-image:url('https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=1200');">
+  <div class="hero-title">How Chariot Is Transforming Transport in Kampala</div>
+</div>
+
+<!-- BLOG CONTENT -->
+<div class="content-wrapper">
+
+  <a href="blogs.html" class="back-btn">← Back to Blogs</a>
+
+  <p>
+    Transportation in Kampala has always been fast-moving, diverse, and vibrant — but also chaotic.
+    Chariot Uganda is introducing a new way to move: safer, cleaner, and more reliable mobility
+    powered by modern technology.
+  </p>
+
+  <h2>A Smarter Way to Move</h2>
+  <p>
+    With real-time tracking, transparent pricing, and verified drivers, Chariot ensures a smoother
+    experience for both riders and drivers. Whether commuting for work, heading to school, or visiting
+    friends, users now have fast and dependable transport at their fingertips.
+  </p>
+
+  <h2>Empowering Local Drivers</h2>
+  <p>
+    Chariot creates new opportunities for income by connecting drivers with thousands of daily users.
+    Drivers receive fair earnings, safety support, and flexible working schedules so they can take
+    control of their financial future.
+  </p>
+
+  <h2>Safety at the Core</h2>
+  <p>
+    From driver background checks to vehicle requirements and 24/7 support, Chariot prioritizes safety
+    at every level. Every ride is designed to offer comfort, trust, and accountability.
+  </p>
+
+  <h2>The Future of Kampala Mobility</h2>
+  <p>
+    As the city continues to grow, smart mobility will play a big role in shaping its economy and daily
+    life. Chariot is committed to leading this transformation and helping Kampala move forward.
+  </p>
+
+</div>
+
+<footer>
+  <p>© 2025 Chariot Uganda. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
