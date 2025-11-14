@@ -15,41 +15,18 @@
     mobileToggle.setAttribute('aria-expanded','false');
   }));
 
-  /* ---------- Section reveal & active nav ---------- */
-  const sections = document.querySelectorAll('main section');
   const navLinks = document.querySelectorAll('.nav-link');
 
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-        // set active nav link
-        const id = entry.target.id;
-        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
-      }
-    });
-  }, { threshold: 0.52 });
-
-  sections.forEach(s => io.observe(s));
-
-  // helper for top buttons
-  function scrollToSection(id){
-    const el = document.getElementById(id);
-    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  // remove active class from all links
+  function clearActive() {
+    navLinks.forEach(a => a.classList.remove('active'));
   }
 
-  // attach click handlers to desktop nav (close mobile if open)
-  document.querySelectorAll('nav.desktop a').forEach(a => {
-    a.addEventListener('click', (e) => {
-      const href = a.getAttribute('href');
-      if(href && href.startsWith('#')) {
-        e.preventDefault();
-        const id = href.slice(1);
-        scrollToSection(id);
-        // close mobile nav if visible
-        mobileNav.style.display = 'none';
-        mobileToggle && mobileToggle.setAttribute('aria-expanded','false');
-      }
+  // when clicking nav links
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      clearActive();
+      link.classList.add('active');
     });
   });
 
