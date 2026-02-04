@@ -295,3 +295,55 @@
     });
   });
 })();
+
+
+const form = document.getElementById('contactForm');
+const feedback = document.getElementById('formFeedback');
+
+function showToast(msg, time = 3000){
+  const root = document.getElementById('toastRoot');
+  if(!root) return;
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.textContent = msg;
+  root.appendChild(t);
+  setTimeout(()=> t.remove(), time);
+}
+
+if(form){
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (feedback) feedback.textContent = '';
+
+    const name = document.getElementById('name')?.value.trim();
+    const email = document.getElementById('email')?.value.trim();
+    const message = document.getElementById('message')?.value.trim();
+
+    if(!name){ if(feedback) feedback.textContent = 'Please enter your name.'; return; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ if(feedback) feedback.textContent = 'Please enter a valid email.'; return; }
+    if(message.length < 8){ if(feedback) feedback.textContent = 'Message is too short.'; return; }
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const old = submitBtn ? submitBtn.textContent : '';
+    if(submitBtn){ submitBtn.textContent = 'Sending...'; submitBtn.disabled = true; }
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if(res.ok){
+        form.reset();
+        showToast('Message sent — we will get back to you shortly!');
+      } else {
+        showToast('Failed to send. Please try again.');
+      }
+    } catch (err) {
+      showToast('Network error. Please try again.');
+    } finally {
+      if(submitBtn){ submitBtn.textContent = old; submitBtn.disabled = false; }
+    }
+  });
+}

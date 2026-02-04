@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chariot SMS Opt-In (OTP & Transactional Only)</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        /* layout helpers only (keeps your site colors from css/styles.css) */
+        .sms-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        @media (max-width: 900px) {
+            .sms-grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .sms-card {
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .sms-proof {
+            width: 100%;
+            max-width: 640px;
+            border-radius: 16px;
+            display: block;
+            margin-top: 12px;
+        }
+
+        .sms-note {
+            margin-top: 10px;
+            opacity: .88;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* ✅ FIX: do NOT use .faq-panel for long text (your FAQ CSS may clamp it) */
+        .sms-disclosure {
+            margin-top: 10px;
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, .12);
+            background: rgba(255, 255, 255, .06);
+            overflow: visible;
+        }
+
+        .sms-disclosure-title {
+            margin-bottom: 8px;
+            opacity: .92;
+        }
+
+        .sms-disclosure-text {
+            line-height: 1.8;
+            white-space: normal;
+            word-break: break-word;
+        }
+
+        .sms-message-box {
+            margin-top: 10px;
+            padding: 14px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, .12);
+            background: rgba(255, 255, 255, .08);
+            overflow: visible;
+        }
+
+        .sms-message-text {
+            line-height: 1.8;
+            white-space: normal;
+            word-break: break-word;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="wrap nav">
+            <a href="index.html">
+                <div class="brand" aria-hidden="true">
+                    <img src="https://res.cloudinary.com/daiyjykmj/image/upload/v1759931875/chariot_images/chariot%20logo-01.png"
+                        alt="">
+                </div>
+            </a>
+
+            <!-- desktop nav -->
+            <nav class="desktop" aria-label="Primary navigation">
+                <a href="index.html#home" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About Us</a>
+                <a href="ride.html" class="nav-link">Ride</a>
+                <a href="drive.html" class="nav-link">Drive</a>
+                <a href="index.html#reviews" class="nav-link">Reviews</a>
+                <a href="index.html#faq" class="nav-link">FAQ</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="row" style="margin-top:40px">
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+            </div>
+        </div>
+
+        <!-- mobile nav -->
+        <div id="mobileNav" class="mobile-nav" aria-hidden="true" style="display:none">
+            <a href="index.html#home" class="nav-link">Home</a>
+            <a href="index.html#about" class="nav-link">About Us</a>
+            <a href="ride.html" class="nav-link">Ride</a>
+            <a href="drive.html" class="nav-link">Drive</a>
+            <a href="index.html#reviews" class="nav-link">Reviews</a>
+            <a href="index.html#faq" class="nav-link">FAQ</a>
+            <a href="index.html#contact" class="nav-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <div class="ride-header">
+        <h1>Chariot SMS Opt-In</h1>
+        <p>OTP &amp; Transactional Notifications Only (No Marketing). Public verification page for Twilio campaign
+            review.</p>
+
+        <div class="store-buttons">
+            <a href="https://play.google.com/store/apps/details?id=com.chariot.customer&pcampaignid=web_share">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                    alt="Rider App on Google Play">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.chariot.driver&pcampaignid=web_share">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                    alt="Driver App on Google Play">
+            </a>
+        </div>
+    </div>
+
+    <main class="wrap">
+
+        <!-- ✅ CARD 1 (TOP - FULL WIDTH): MESSAGE + PROGRAM INFO -->
+        <section class="section-container sms-card">
+            <div class="info">
+                <h2>SMS Message Example</h2>
+                <p class="sms-note">Example of the OTP message users receive:</p>
+
+                <div class="sms-message-box" aria-label="Example SMS message">
+                    <div class="sms-message-text">
+                        Your Chariot verification code is: 787074. Reply STOP to opt out, HELP for help.
+                    </div>
+                </div>
+
+                <h2 style="margin-top:18px">SMS Program Overview</h2>
+                <p>
+                    Chariot is a mobility and ride-hailing platform. This campaign sends:
+                    <b>(1) One-Time Passwords (OTP)</b> for account verification (sign-up, sign-in, password reset) and
+                    <b>(2) transactional notifications</b> directly related to user-initiated activity
+                    (ride requested, driver assigned/arrived, trip started/ended, payment/receipt updates).
+                    <b>No marketing or promotional content is sent.</b>
+                </p>
+
+                <h2 style="margin-top:16px">Message Flow (User-Initiated Only)</h2>
+                <p>
+                    Messages are sent only after a user action in the Chariot apps (e.g., tap “Log in / Sign up” to
+                    request OTP,
+                    request a ride, receive trip status updates, and payment/receipt notifications after trip
+                    completion).
+                </p>
+
+                <h2 style="margin-top:16px">How users opt in (in-app)</h2>
+                <p>
+                    Users provide their mobile number and consent in the Chariot app during sign-up, sign-in, or when
+                    requesting an OTP.
+                    The opt-in disclosure is shown at the point of phone number collection and states:
+                </p>
+
+                <!-- ✅ FULL DISCLOSURE BOX -->
+                <div class="sms-disclosure" aria-label="Opt-in disclosure text">
+                    <div class="sms-disclosure-title"><b>Opt-in disclosure shown in app:</b></div>
+                    <div class="sms-disclosure-text">
+                        “By continuing, you agree to receive SMS from Chariot for account verification (OTP) and
+                        transactional notifications related to your account/ride activity.
+                        Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help.
+                        Privacy Policy: https://chariot.ug/privacy.html”
+                    </div>
+                </div>
+
+                <p class="sms-note">
+                    Company: <b>Chariot Technologies Uganda</b> · Support: <b>+256 205 491 108</b>
+                </p>
+            </div>
+        </section>
+
+        <!-- ✅ 2 DOWN CARDS: BOTH ARE SCREENSHOTS -->
+        <div class="sms-grid-2">
+
+            <!-- Card 2: Screenshot 1 -->
+            <section class="section-container sms-card">
+                <div class="info">
+                    <h2>Opt-in proof — Screenshot 1</h2>
+                    <p class="sms-note">
+                        Phone number collection / terms &amp; privacy shown before continuing.
+                    </p>
+
+                    <img class="sms-proof" src="assets/optin/chariot-optin.jpeg"
+                        alt="Chariot app phone number collection screen" />
+
+                     
+                </div>
+            </section>
+
+            <!-- Card 3: Screenshot 2 -->
+            <section class="section-container sms-card">
+                <div class="info">
+                    <h2>Opt-in proof — Screenshot 2</h2>
+                    <p class="sms-note">
+                        Full SMS disclosure (STOP/HELP, msg &amp; data rates, message frequency).
+                    </p>
+
+                    <img class="sms-proof" src="assets/optin/chariot-optin-2.jpg"
+                        alt="Chariot app SMS disclosure screen showing STOP/HELP, msg & data rates, and message frequency" />
+
+                     
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="wrap foot-wrap">
+            <div>© 2025 Chariot. All Rights Reserved</div>
+            <div style="display:flex;gap:14px;align-items:center">
+                <a href="privacy.html" style="color:#fff;text-decoration:none">Privacy</a>
+                <a href="terms.html" style="color:#fff;text-decoration:none">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toastRoot" aria-live="polite"></div>
+    <script src="js/index.js" defer></script>
+</body>
+
+</html>
